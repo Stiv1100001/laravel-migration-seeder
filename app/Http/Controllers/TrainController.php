@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Train;
-use Illuminate\Support\Facades\Log;
 
 class TrainController extends Controller
 {
     public function index()
     {
         $trains = Train::where([
-            ["giorno_di_partenza", '=', date('Y-m-d')],
-            ["cancellato", "=", 0]
-        ])->get();
+            // ["giorno_di_partenza", '=', date('Y-m-d')],
+            ["cancellato", "=", false]
+        ])->orderBy("giorno_di_partenza", "desc")->paginate(10);
 
         $data = ["trains" => $trains];
 
