@@ -25,6 +25,9 @@
                 </div>
             </div>
             @endforeach
+            <div class="col-12">
+                {{ $trains->links() }}
+            </div>
         </div>
     </main>
 </body>
