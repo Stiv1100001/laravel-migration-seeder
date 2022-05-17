@@ -18,4 +18,11 @@ class TrainController extends Controller
 
         return view('train', $data);
     }
+
+    public function show($id)
+    {
+        $train = Train::findOrFail($id);
+
+        return view('show', ["train" => $train]);
+    }
 }
